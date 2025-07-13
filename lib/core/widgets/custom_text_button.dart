@@ -6,9 +6,11 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.text,
+    this.style,
   });
   final void Function() onPressed;
   final String text;
+  final TextStyle? style;
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -18,7 +20,7 @@ class CustomTextButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: Size.zero,
       ),
-      child: Text(text, style: TextStyles.w600Black12),
+      child: Text(text, style:style ?? TextStyles.w600Black12),
     );
   }
 }
