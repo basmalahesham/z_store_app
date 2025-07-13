@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:z_store_app/core/helper/space_extension.dart';
 import 'package:z_store_app/features/home/presentation/views/widgets/custom_categories_widget.dart';
 import 'package:z_store_app/features/home/presentation/views/widgets/custom_trending_products_widget.dart';
 
@@ -15,6 +16,7 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               children: [
                 CustomCategoriesWidget(),
+                12.height,
                 CustomTrendingProductsWidget(),
               ],
             ),

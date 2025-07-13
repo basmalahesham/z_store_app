@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:z_store_app/core/helper/space_extension.dart';
 import 'package:z_store_app/core/theming/colors.dart';
 import 'package:z_store_app/core/theming/styles/text_styles.dart';
 import 'package:z_store_app/features/home/data/models/trending_product_model.dart';
+import 'package:z_store_app/features/home/presentation/views/widgets/custom_icon_button.dart';
 
 class CustomTrendingProductItem extends StatelessWidget {
-  const CustomTrendingProductItem({super.key, required this.productModel});
+  const CustomTrendingProductItem({
+    super.key,
+    required this.productModel,
+    required this.isActive,
+  });
+
   final TrendingProductModel productModel;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 160,
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
@@ -19,16 +27,10 @@ class CustomTrendingProductItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.10),
-            spreadRadius: 0,
-            blurRadius: 2,
-            offset: Offset(-2, -2), // changes position of shadow
-          ),
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.10),
-            spreadRadius: 0,
-            blurRadius: 2,
-            offset: Offset(2, 2), // changes position of shadow
+            color: Colors.black.withValues(alpha: 0.1),
+            blurRadius: 4,
+            spreadRadius: 1,
+            offset: Offset(0, 2),
           ),
         ],
       ),
@@ -44,7 +46,7 @@ class CustomTrendingProductItem extends StatelessWidget {
                 ),
                 child: Image.asset(
                   productModel.imageUrl,
-                  height: 100,
+                  height: 100.h,
                   width: double.infinity,
                   fit: BoxFit.contain,
                 ),
@@ -74,50 +76,15 @@ class CustomTrendingProductItem extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 4,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.favorite_border),
-                  iconSize: 20,
-                  color: Colors.red,
-                  onPressed: () {},
-                  splashRadius: 24,
-                ),
+              CustomIconButton(
+                onTap: () {},
+                icon: Icons.favorite_border,
+                color: ColorsManager.kSecondaryColor,
               ),
-
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 4,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.shopping_cart_outlined),
-                  iconSize: 20,
-                  color: Colors.black,
-                  onPressed: () {},
-                  splashRadius: 24,
-                ),
+              CustomIconButton(
+                onTap: () {},
+                icon: Icons.shopping_cart_outlined,
+                color: Colors.black,
               ),
             ],
           ),
