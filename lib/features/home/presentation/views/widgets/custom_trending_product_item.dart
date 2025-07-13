@@ -13,7 +13,7 @@ class CustomTrendingProductItem extends StatelessWidget {
     required this.isActive,
   });
 
-  final TrendingProductModel productModel;
+  final ProductModel productModel;
   final bool isActive;
 
   @override

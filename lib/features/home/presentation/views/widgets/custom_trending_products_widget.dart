@@ -19,56 +19,56 @@ class _CustomTrendingProductsWidgetState
   final double _itemWidth = 180;
   double _currentScroll = 0;
 
-  final List<TrendingProductModel> trendingProducts = [
-    TrendingProductModel(
+  final List<ProductModel> trendingProducts = [
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',
       isOutOfStock: true,
     ),
-    TrendingProductModel(
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',
       isOutOfStock: true,
     ),
-    TrendingProductModel(
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',
       isOutOfStock: true,
     ),
-    TrendingProductModel(
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',
       isOutOfStock: true,
     ),
-    TrendingProductModel(
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',
       isOutOfStock: true,
     ),
-    TrendingProductModel(
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',
       isOutOfStock: true,
     ),
-    TrendingProductModel(
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',
       isOutOfStock: true,
     ),
-    TrendingProductModel(
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',
       isOutOfStock: true,
     ),
-    TrendingProductModel(
+    ProductModel(
       imageUrl: Assets.imagesZGuard,
       title: 'Z-Guard',
       price: '89998',

@@ -15,6 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: ColorsManager.kPrimaryColor,
+      surfaceTintColor: ColorsManager.kPrimaryColor,
       elevation: 0,
       title: Row(
         children: [
