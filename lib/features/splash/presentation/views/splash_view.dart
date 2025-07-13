@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:z_store_app/core/helper/extensions.dart';
 import 'package:z_store_app/core/routing/routes.dart';
+import 'package:z_store_app/generated/assets.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -13,7 +14,7 @@ class SplashView extends StatelessWidget {
     );
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/images/splash.jpg')),
+        image: DecorationImage(image: AssetImage(Assets.imagesSplash)),
       ),
       child: Scaffold(backgroundColor: Colors.transparent),
     );
