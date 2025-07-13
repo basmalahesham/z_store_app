@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:z_store_app/core/helper/extensions.dart';
+import 'package:z_store_app/core/routing/routes.dart';
 import 'package:z_store_app/core/theming/colors.dart';
-import 'package:z_store_app/features/auth/presentation/views/login_view.dart';
 import 'package:z_store_app/features/cart/presentation/views/cart_view.dart';
 import 'package:z_store_app/features/home/presentation/views/home_view.dart';
 import 'package:z_store_app/features/wishlist/presentation/views/wishlist_view.dart';
@@ -20,7 +21,7 @@ class _HomeLayoutState extends State<HomeLayout> {
     HomeView(),
     CartView(),
     WishlistView(),
-    LoginView(),
+    //LoginView(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -29,9 +30,13 @@ class _HomeLayoutState extends State<HomeLayout> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         onTap: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
+          if (index == 3) {
+            context.pushReplacementNamed(Routes.loginView);
+          } else {
+            setState(() {
+              selectedIndex = index;
+            });
+          }
         },
         items: [
           BottomNavigationBarItem(
