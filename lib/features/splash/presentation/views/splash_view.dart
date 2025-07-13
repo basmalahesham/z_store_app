@@ -14,7 +14,7 @@ class SplashView extends StatelessWidget {
     );
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(Assets.imagesSplash)),
+        image: DecorationImage(image: AssetImage(Assets.imagesSplash),fit: BoxFit.cover),
       ),
       child: Scaffold(backgroundColor: Colors.transparent),
     );

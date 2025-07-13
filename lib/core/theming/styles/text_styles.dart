@@ -39,4 +39,14 @@ abstract class TextStyles {
     fontSize: 18.sp,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle bold14Black = GoogleFonts.poppins(
+    color: Colors.black,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle bold9White =GoogleFonts.poppins(
+  fontSize: 9,
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  );
 }
