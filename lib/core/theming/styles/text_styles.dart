@@ -24,4 +24,9 @@ abstract class TextStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle w500Gray15 = GoogleFonts.poppins(
+    color: Color(0xFF484C52),
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w500,
+  );
 }
