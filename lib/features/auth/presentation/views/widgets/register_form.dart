@@ -11,18 +11,22 @@ import 'package:z_store_app/core/widgets/custom_elevated_button.dart';
 import 'package:z_store_app/core/widgets/custom_text_button.dart';
 import 'package:z_store_app/core/widgets/custom_text_form_field.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+class RegisterForm extends StatefulWidget {
+  const RegisterForm({super.key});
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<RegisterForm> createState() => _RegisterFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _RegisterFormState extends State<RegisterForm> {
   final formKey = GlobalKey<FormState>();
+
   var phoneController = TextEditingController();
   var passwordController = TextEditingController();
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
   bool isObscure = true;
+
   Country selectedCountry = Country(
     phoneCode: '20',
     countryCode: 'EG',
@@ -42,6 +46,17 @@ class _LoginFormState extends State<LoginForm> {
       key: formKey,
       child: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: CustomTextFormField(
+              controller: nameController,
+              labelText: 'Name...',
+              validator: (value) {
+                return nameValidator(value, context);
+              },
+            ),
+          ),
+          20.height,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: CustomTextFormField(
@@ -85,6 +100,17 @@ class _LoginFormState extends State<LoginForm> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: CustomTextFormField(
+              controller: emailController,
+              labelText: 'Email...',
+              validator: (value) {
+                return emailValidator(value, context);
+              },
+            ),
+          ),
+          20.height,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: CustomTextFormField(
               controller: passwordController,
               labelText: 'password',
               validator: (value) {
@@ -107,24 +133,22 @@ class _LoginFormState extends State<LoginForm> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 context.pushReplacementNamed(Routes.homeLayout);
-
               }
             },
             minimumSize: Size(double.infinity, 50.h),
-            text: "Sign In",
+            text: "SignUp",
             style: TextStyle(color: Colors.white),
           ),
           20.height,
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Didn't have any account? ", style: TextStyles.w500Gray15),
+              Text("Already have an account? ", style: TextStyles.w500Gray15),
               CustomTextButton(
                 onPressed: () {
-                  context.pushNamed(Routes.registerView);
+                  context.pop();
                 },
-                text: "Sign Up here",
+                text: "Sign in",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 14.sp,

@@ -12,6 +12,7 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        surfaceTintColor: ColorsManager.kPrimaryColor,
         backgroundColor: ColorsManager.kPrimaryColor,
         leading: IconButton(onPressed: () {
           context.pushReplacementNamed(Routes.homeLayout);

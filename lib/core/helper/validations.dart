@@ -25,6 +25,22 @@ String? passwordValidator(String? value, BuildContext context) {
   return null;
 }
 
+String? nameValidator(String? value, BuildContext context) {
+  if (value == null || value.trim().isEmpty) {
+    return 'Please enter your name';
+  }
+  if (value.trim().length < 1) {
+    return "Your name must be at least 1 characters";
+  }
+
+  final nameRegExp = RegExp(r"^[\u0600-\u06FFa-zA-Z\s]+$");
+  if (!nameRegExp.hasMatch(value.trim())) {
+    return "Only letters are allowed.";
+  }
+
+  return null;
+}
+
 String? phoneValidator(String? value, BuildContext context) {
   if (value == null || value.trim().isEmpty) {
     return "Please enter your phone number";
