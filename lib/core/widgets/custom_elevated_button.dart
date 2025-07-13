@@ -7,7 +7,7 @@ class CustomElevatedButton extends StatelessWidget {
     required this.onPressed,
     this.text,
     this.backgroundColor,
-    required this.minimumSize,
+    this.minimumSize,
     this.style,
     this.child,
     this.padding,
@@ -18,7 +18,7 @@ class CustomElevatedButton extends StatelessWidget {
   final void Function() onPressed;
   final String? text;
   final Color? backgroundColor;
-  final Size minimumSize;
+  final Size? minimumSize;
   final TextStyle? style;
   final Widget? child;
   final EdgeInsetsGeometry? padding;
