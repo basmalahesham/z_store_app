@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +23,18 @@ class _LoginFormState extends State<LoginForm> {
   var phoneController = TextEditingController();
   var passwordController = TextEditingController();
   bool isObscure = true;
+  Country selectedCountry = Country(
+    phoneCode: '20',
+    countryCode: 'EG',
+    e164Sc: 0,
+    geographic: true,
+    level: 1,
+    name: 'Egypt',
+    example: '1234567890',
+    displayName: 'Egypt',
+    displayNameNoCountryCode: 'Egypt',
+    e164Key: '',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +52,33 @@ class _LoginFormState extends State<LoginForm> {
                 FilteringTextInputFormatter.digitsOnly,
                 LengthLimitingTextInputFormatter(11),
               ],
-              validator: (value) {
-                return phoneValidator(value, context);
-              },
+              validator: (value) => phoneValidator(value, context),
+              prefixIcon: GestureDetector(
+                onTap: () {
+                  showCountryPicker(
+                    context: context,
+                    showPhoneCode: true,
+                    onSelect: (Country country) {
+                      setState(() {
+                        selectedCountry = country;
+                      });
+                    },
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        '${selectedCountry.flagEmoji} +${selectedCountry.phoneCode}',
+                        style: TextStyles.bold14Black,
+                      ),
+                      const Icon(Icons.arrow_drop_down, size: 20),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
           20.height,
