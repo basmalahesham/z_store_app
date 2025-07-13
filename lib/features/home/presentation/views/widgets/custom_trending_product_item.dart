@@ -44,11 +44,14 @@ class CustomTrendingProductItem extends StatelessWidget {
                   color: Color(0xFFF2F2F2),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Image.asset(
-                  productModel.imageUrl,
-                  height: 100.h,
-                  width: double.infinity,
-                  fit: BoxFit.contain,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    productModel.imageUrl,
+                    height: 100.h,
+                    width: double.infinity,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               if (productModel.isOutOfStock)
@@ -71,6 +74,8 @@ class CustomTrendingProductItem extends StatelessWidget {
             productModel.title,
             style: TextStyles.bold14Black,
             textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
           4.height,
           Row(
