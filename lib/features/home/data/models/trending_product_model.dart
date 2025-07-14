@@ -4,6 +4,7 @@ class ProductModel {
   final String price;
   final String? description;
   final bool isOutOfStock;
+  final String? categoryName;
 
   ProductModel({
     required this.imageUrl,
@@ -11,5 +12,6 @@ class ProductModel {
     required this.price,
     this.isOutOfStock = false,
     this.description,
+    this.categoryName,
   });
 }

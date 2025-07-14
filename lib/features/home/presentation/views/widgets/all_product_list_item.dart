@@ -6,8 +6,8 @@ import 'package:z_store_app/core/theming/styles/text_styles.dart';
 import 'package:z_store_app/features/home/data/models/trending_product_model.dart';
 import 'package:z_store_app/features/home/presentation/views/widgets/custom_icon_button.dart';
 
-class AllProductItem extends StatelessWidget {
-  const AllProductItem({super.key, required this.productModel});
+class AllProductListItem extends StatelessWidget {
+  const AllProductListItem({super.key, required this.productModel});
   final ProductModel productModel;
 
   @override
@@ -31,8 +31,6 @@ class AllProductItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            // width: 80,
-            // height: 80,
             decoration: BoxDecoration(
               color: Color(0xFFF2F2F2),
               borderRadius: BorderRadius.circular(12),
@@ -42,8 +40,8 @@ class AllProductItem extends StatelessWidget {
               child: Image.asset(
                 productModel.imageUrl,
                 fit: BoxFit.contain,
-                height: 120.h,
-                width: 120,
+                height: 130.h,
+                width: 130,
               ),
             ),
           ),
@@ -68,9 +66,16 @@ class AllProductItem extends StatelessWidget {
                 4.height,
                 Text(
                   '${productModel.price} EGP',
-                  style: TextStyles.bold14Black,
+                  style: TextStyles.boldBlack12,
                 ),
-                15.height,
+                4.height,
+                Text(
+                  productModel.categoryName ?? '',
+                  style: TextStyles.boldBlack12.copyWith(
+                    color: ColorsManager.kSecondaryColor,
+                  ),
+                ),
+                8.height,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

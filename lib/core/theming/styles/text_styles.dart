@@ -14,6 +14,11 @@ abstract class TextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle boldBlack12 = GoogleFonts.poppins(
+    color: Colors.black,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle bold14Red = GoogleFonts.poppins(
     color: ColorsManager.kSecondaryColor,
     fontSize: 14.sp,
